@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import AddToCartButton from '/imports/ui/components/AddToCartButton.jsx';
 export default class Solo extends Component {
 
   render() {
@@ -28,9 +28,7 @@ export default class Solo extends Component {
                 <strong>Ship: </strong>
                 Free
               </p>
-              <button className="btn">
-                Add to Cart
-              </button>
+              <AddToCartButton/>
             </div>
           </div>
 
