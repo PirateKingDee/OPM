@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AddToCartButton from '/imports/ui/components/AddToCartButton.jsx';
 import { Link } from 'react-router';
 import accounting from 'accounting';
+import Rating from '/imports/ui/components/Rating.jsx';
 export default class ProductDetail extends Component {
 
   render() {
@@ -23,6 +24,14 @@ export default class ProductDetail extends Component {
     //   }
     // }
 
+    let rating = (reviews) => {
+      var total=0;
+      for(var i in reviews) { total += reviews[i].rating;}
+      var avg = total/reviews.length
+      console.log('total rating', avg);
+      return avg;
+    }
+
     return (
       <div>
         <div className="row">
@@ -32,9 +41,7 @@ export default class ProductDetail extends Component {
           <div className="col-sm-8">
             <p className="lala">
               <strong>Review: </strong>
-              <img height="35px" width="35px" src="/images/chopper_icon.gif" />
-              <img height="35px" width="35px" src="/images/chopper_icon.gif" />
-              <img height="35px" width="35px" src="/images/chopper_icon.gif" />
+              <Rating rating={rating(product.reviews)} />
 
             </p>
             <p className="lala">

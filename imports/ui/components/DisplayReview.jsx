@@ -8,12 +8,8 @@ export default class DisplayReivew extends Component {
     let getDate = (date) => {
       return date.getMonth()+1+"/"+date.getDate()+", "+date.getFullYear();
     }
-    // let dateString = review.date.getMonth()+1+"/"+review.date.getDate()+", "+review.date.getFullYear();
-    //console.log('DisplayReivew', product);
     if(reviews!=null){
       allReviews = reviews.map(function(review, i){
-
-      // console.log('dateString', dateString);
         return <div key={i} className="display-review">
                 <div className="row">
                   <Rating rating={review.rating} />
