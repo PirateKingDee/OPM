@@ -4,7 +4,7 @@ import ProductHolder from '/imports/ui/components/ProductHolder.jsx';
 export default class Home extends Component {
 
   render() {
-    if(!this.props.loading){
+    if(this.props.loading){
       return <h1>loading</h1>;
     }
     else{
