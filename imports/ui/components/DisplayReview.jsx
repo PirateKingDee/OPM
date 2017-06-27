@@ -1,23 +1,31 @@
 import React, {Component} from 'react';
-
+import Rating from '/imports/ui/components/Rating.jsx';
 export default class DisplayReivew extends Component {
 
   render() {
-    let product = this.props.product;
+    let reviews = this.props.reviews;
     let allReviews = null;
-    if(product.review!=null){
-      allReviews = product.review.map(function(review, i){
+    //console.log('DisplayReivew', product);
+    if(reviews!=null){
+      allReviews = reviews.map(function(review, i){
 
-        return <div key={i} className="row">
-          <span key={i}>{review} </span>
-        </div>;
+        return <div key={i}>
+                <div className="row">
+                  <Rating rating={review.rating} name={review.name} date={review.date}/>
+                  {review.verified? <span>Verified</span> : <span>Not verified</span>}
+                </div>
+                <div key={i} className="row">
+                    <span  key={i}>{review.review} </span>
+                </div>
+              </div>;
 
       });
     }
-
     return (
       <div>
-        {allReviews}
+        <ul>
+          {allReviews}
+        </ul>
       </div>
     )
   }

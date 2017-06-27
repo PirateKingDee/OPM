@@ -8,3 +8,25 @@
   margin-top: 0px;
   padding-top: 20px;
 }
+
+.rating-btn{
+  background-color: white;
+  border: none;
+}
+
+.rating-btn:hover{
+  /*background-color: white;*/
+  border-style: solid;
+  border-color: black;
+}
+
+.review-form{
+  margin-bottom: 50px;
+}
+
+.username{
+  font-size: 18px;
+  font-family: serif;
+  margin-right: 20px;
+  color: blue;
+}
