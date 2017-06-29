@@ -7,31 +7,6 @@ export default class ProductDetail extends Component {
 
   render() {
     let product = this.props.product;
-    let reviews = product.review;
-    //console.log('product',product);
-
-    // let review = () => {
-    //   if(props.product.review==1){
-    //     console.log('review',reviews);
-    //     return <div><img height="35px" width="35px" src="/images/chopper_icon.gif" /></div>
-    //   }
-    //   else{
-    //     console.log('review',reviews);
-    //     return <div>
-    //       <img height="35px" width="35px" src="/images/chopper_icon.gif" />
-    //       <img height="35px" width="35px" src="/images/chopper_icon.gif" />
-    //     </div>
-    //   }
-    // }
-
-    let rating = (reviews) => {
-      var total=0;
-      for(var i in reviews) { total += reviews[i].rating;}
-      var avg = total/reviews.length
-      console.log('total rating', avg);
-      return avg;
-    }
-
     return (
       <div>
         <div className="row">
@@ -41,7 +16,7 @@ export default class ProductDetail extends Component {
           <div className="col-sm-8">
             <p className="lala">
               <strong>Review: </strong>
-              <Rating rating={rating(product.reviews)} />
+              <Rating rating={product.rating} />
 
             </p>
             <p className="lala">
