@@ -4,11 +4,14 @@ export default class Rating extends Component {
 
   render() {
     let rating = this.props.rating;
-    // let name = this.props.name;
-    // let date = this.props.date;
-    // let dateString = date.getMonth()+1+"/"+date.getDate()+", "+date.getFullYear();
-    // console.log('date',dateString);
-    if(rating <= 1){
+    if(rating == 0){
+      return(
+        <span>
+          No rating
+        </span>
+      )
+    }
+    else if(rating <= 1){
       return(
         <span className="">
           {/* <span >By: </span><span className="username" >{name}</span> */}

@@ -16,8 +16,9 @@
 
 .rating-btn:hover{
   /*background-color: white;*/
-  border-style: solid;
-  border-color: black;
+  image-resolution: snap;
+  /*border-style: solid;
+  border-color: black;*/
 }
 
 .review-form{
