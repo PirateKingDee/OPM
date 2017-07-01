@@ -5,9 +5,12 @@ import Header from './Header.jsx';
 export default class MainLayout extends Component {
 
   render() {
+    if(this.props.loading){
+      return <div>Loading</div>
+    }
     return (
       <div>
-        <Header />
+        <Header {...this.props}/>
         {this.props.children}
       </div>
     );

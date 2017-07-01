@@ -5,3 +5,6 @@ import '/imports/api/products/server/publication/one_product.js';
 import '/imports/api/review/server/methods/add_review.js';
 import '/imports/api/review/server/publication/match_reviews.js';
 import '/imports/api/products/server/methods/update_product_rating.js';
+import '/imports/api/users/server/publications/current_user.js';
+import '/imports/api/products/server/methods/insert_product.js';
+import '/imports/api/products/server/methods/remove_product.js';

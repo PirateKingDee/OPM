@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
 import DisplayReivew from '/imports/ui/components/DisplayReview.jsx';
+import ProductContainer from '/imports/ui/container/ProductContainer.jsx';
 export default class Review extends Component {
 
   render() {
     let product = this.props.product;
+    let reviews = this.props.reviews;
     let rating = 0;
-
+    //console.log('rating', rating);
     let addReview = () => {
+      //console.log('user',Meteor.user().profile.name);
       let message = this.refs.review.value.trim();
-      let name = this.refs.user.value.trim();
       let newReview = {
         product_id:product._id,
-        product_name:product.name,
-        username: name,
+        // product_name:product.name,
+        username: Meteor.user().profile.name,
         verified: false,
         rating: rating,
         review: message,
-        date: new Date()
+        // date: new Date()
       }
       Meteor.call("addReview", newReview, function(error, result){
         if(result === 'success'){
@@ -27,11 +29,17 @@ export default class Review extends Component {
           return;
         }
       });
-      //update rating of the product
+
       let totalRating = product.total_rating+rating;
-      // let newAvgRating = totalRating/
       Meteor.call("updateProductTotalRating", product._id, totalRating);
 
+
+      newAvgRating = totalRating/(reviews.length+1);
+
+      //update product.rating
+      Meteor.call("updateProductRating", product._id, newAvgRating);
+      clearRating();
+      clearReviewText();
     }
 
     let clearTitleText = () => {
@@ -40,40 +48,72 @@ export default class Review extends Component {
     let clearReviewText = () => {
       this.refs.review.value = "";
     }
+    let clearRating = () => {
+      this.refs.firstRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.secondRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
+    }
 
     let oneRating = () => {
       rating = 1;
+      this.refs.firstRatingImage.src="/images/chopper_icon.gif";
+      this.refs.secondRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
     }
     let twoRating = () => {
       rating = 2;
+      this.refs.firstRatingImage.src="/images/chopper_icon.gif";
+      this.refs.secondRatingImage.src="/images/chopper_icon.gif";
+      this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
     }
     let threeRating = () => {
       rating = 3;
+      this.refs.firstRatingImage.src="/images/chopper_icon.gif";
+      this.refs.secondRatingImage.src="/images/chopper_icon.gif";
+      this.refs.thirdRatingImage.src="/images/chopper_icon.gif";
+      this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+      this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
     }
     let fourRating = () => {
       rating = 4;
+      this.refs.firstRatingImage.src="/images/chopper_icon.gif";
+      this.refs.secondRatingImage.src="/images/chopper_icon.gif";
+      this.refs.thirdRatingImage.src="/images/chopper_icon.gif";
+      this.refs.fourthRatingImage.src="/images/chopper_icon.gif";
+      this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
     }
     let fiveRating = () => {
       rating = 5;
+      this.refs.firstRatingImage.src="/images/chopper_icon.gif";
+      this.refs.secondRatingImage.src="/images/chopper_icon.gif";
+      this.refs.thirdRatingImage.src="/images/chopper_icon.gif";
+      this.refs.fourthRatingImage.src="/images/chopper_icon.gif";
+      this.refs.fifthRatingImage.src="/images/chopper_icon.gif";
     }
 
     let onOneStar = () => {
       if(rating<1){
         this.refs.firstRatingImage.src="/images/chopper_icon.gif";
-        this.refs.secondRatingImage.src="/images/gray_chopper_icon.png";
-        this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
-        this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
-        this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.secondRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
       }
     }
 
     let leaveOneStar = () => {
       if(rating<1)
       this.refs.firstRatingImage.src="/images/gray_chopper_icon.png";
-      this.refs.secondRatingImage.src="/images/chopper_icon.gif";
-      this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
-      this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
-      this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
+      // this.refs.secondRatingImage.src="/images/chopper_icon.gif";
+      // this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
+      // this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+      // this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
     }
     let onTwoStar = () => {
       if(rating==0){
@@ -82,9 +122,9 @@ export default class Review extends Component {
       }
       else if(rating<=2){
         this.refs.secondRatingImage.src="/images/chopper_icon.gif";
-        this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
-        this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
-        this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.thirdRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
       }
     }
 
@@ -103,8 +143,8 @@ export default class Review extends Component {
         this.refs.firstRatingImage.src="/images/chopper_icon.gif";
         this.refs.secondRatingImage.src="/images/chopper_icon.gif";
         this.refs.thirdRatingImage.src="/images/chopper_icon.gif";
-        this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
-        this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fourthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
       }
     }
 
@@ -129,7 +169,7 @@ export default class Review extends Component {
         this.refs.secondRatingImage.src="/images/chopper_icon.gif";
         this.refs.thirdRatingImage.src="/images/chopper_icon.gif";
         this.refs.fourthRatingImage.src="/images/chopper_icon.gif";
-        this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
+        // this.refs.fifthRatingImage.src="/images/gray_chopper_icon.png";
       }
     }
 
@@ -192,13 +232,10 @@ export default class Review extends Component {
     }
 
     return (
-      <div className="container">
+      <div className="container whole_review">
         <div className="row">
-          <h2 className="text-center">Reviews</h2>
-          <label htmlFor="user" className="col-sm-1 control-label">Name</label>
-          <div className="col-sm-5">
-            <input  ref="user" type="text" className="form-control" id="user" placeholder="Your Name"/>
-          </div>
+
+          <h2 className="text-center review_text">Reviews</h2>
           <button  onMouseLeave={leaveOneStar} onMouseEnter={onOneStar} onClick={oneRating} className="rating-btn"><img ref="firstRatingImage" height="35px" width="35px" src="/images/gray_chopper_icon.png" /></button>
           <button  onMouseLeave={leaveTwoStar} onMouseEnter={onTwoStar} onClick={twoRating} className="rating-btn"><img ref="secondRatingImage" height="35px" width="35px" src="/images/gray_chopper_icon.png" /></button>
           <button  onMouseLeave={leaveThreeStar} onMouseEnter={onThreeStar} onClick={threeRating} className="rating-btn"><img ref="thirdRatingImage" height="35px" width="35px" src="/images/gray_chopper_icon.png" /></button>
@@ -207,7 +244,7 @@ export default class Review extends Component {
           <div className="form-group review-form">
             <textarea onClick={clearReviewText} ref="review" className="form-control" id="reviewText" rows="4" placeholder="How is the product?" defaultValue="Write your reviews here">
             </textarea>
-            <button onClick={addReview} type="submit" className="btn btn-primary pull-right">Submit</button>
+            <button  onClick={addReview} type="submit" className="btn btn-primary pull-right">Submit</button>
           </div>
           {/* <DisplayReivew reviews={product.reviews}/> */}
         </div>

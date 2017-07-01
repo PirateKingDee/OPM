@@ -9,12 +9,12 @@ export default class DisplayReivew extends Component {
     else{
       let reviews = this.props.reviews;
       let product = this.props.product;
-      let newAvgRating = 0;
-      if(reviews.length!=0){
-        newAvgRating = product.total_rating/reviews.length;
-      }
+      // let newAvgRating = 0;
+      // if(reviews.length!=0){
+      //   newAvgRating = product.total_rating/reviews.length;
+      // }
       //update product.rating
-      Meteor.call("updateProductRating", product._id, newAvgRating);
+      //Meteor.call("updateProductRating", product._id, newAvgRating);
       let getDate = (date) => {
         return date.getMonth()+1+"/"+date.getDate()+", "+date.getFullYear();
       }
@@ -27,7 +27,7 @@ export default class DisplayReivew extends Component {
                   </div>
                   <div className="row">
                     <span >By: </span><span className="username" >{review.username}</span>
-                    <span>On </span><span>{getDate(review.date)}</span>
+                    <span>On </span><span>{getDate(review.created_at)}</span>
                   </div>
                   <div key={review._id} className="row">
                       <span  key={review._id}>{review.review} </span>

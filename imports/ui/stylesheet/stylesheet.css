@@ -24,6 +24,9 @@
 .review-form{
   margin-bottom: 50px;
 }
+.whole_review{
+  margin-top: 30px;
+}
 
 .username{
   font-size: 18px;
@@ -33,4 +36,15 @@
 }
 .display-review{
   margin-bottom: 20px;
+}
+
+.well{
+  background-color: white;
+  margin-top: 30px;
+}
+
+.review_text{
+  margin-top: 20px;
+  border-top: 1px solid grey;
+  padding:20px;
 }
