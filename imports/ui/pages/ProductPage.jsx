@@ -17,9 +17,10 @@ export default class ProductPage extends Component {
       return (
           <div>
             <div className="container">
-              <ProductDetail product={product} review={reviews}/>
-              <Review product={product} reviews={reviews}/>
+              <ProductDetail product={product} reviews={reviews}/>
               <DisplayReview product={product} reviews={reviews}/>
+              <Review product={product} reviews={reviews}/>
+
               {/* <ReviewContainer productID={product.product_id} product={product}/> */}
             </div>
           </div>

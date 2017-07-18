@@ -4,7 +4,7 @@ export default class AddToCartButton extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="row add_to_cart_btn">
         {/* <img height="256px" width="256px" src='/images/luffy_icon.png' /> */}
         <Link to="/">
 

@@ -8,3 +8,7 @@ import '/imports/api/products/server/methods/update_product_rating.js';
 import '/imports/api/users/server/publications/current_user.js';
 import '/imports/api/products/server/methods/insert_product.js';
 import '/imports/api/products/server/methods/remove_product.js';
+import '/imports/api/blogs/blogs.js';
+import '/imports/api/blogs/server/methods/insert_blog.js';
+import '/imports/api/blogs/server/publications/all_blogs.js';
+import '/imports/api/blogs/server/publications/one_blog.js';

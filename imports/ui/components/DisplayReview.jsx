@@ -36,7 +36,8 @@ export default class DisplayReivew extends Component {
         )
       });
       return(
-        <div>
+        <div className="display_review_container container">
+          <h4>Customer Reviews</h4>
           {reviewList}
         </div>
       )

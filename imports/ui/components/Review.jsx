@@ -32,10 +32,7 @@ export default class Review extends Component {
 
       let totalRating = product.total_rating+rating;
       Meteor.call("updateProductTotalRating", product._id, totalRating);
-
-
       newAvgRating = totalRating/(reviews.length+1);
-
       //update product.rating
       Meteor.call("updateProductRating", product._id, newAvgRating);
       clearRating();
@@ -235,7 +232,7 @@ export default class Review extends Component {
       <div className="container whole_review">
         <div className="row">
 
-          <h2 className="text-center review_text">Reviews</h2>
+          <h2 className="text-center review_text">Write Reviews</h2>
           <button  onMouseLeave={leaveOneStar} onMouseEnter={onOneStar} onClick={oneRating} className="rating-btn"><img ref="firstRatingImage" height="35px" width="35px" src="/images/gray_chopper_icon.png" /></button>
           <button  onMouseLeave={leaveTwoStar} onMouseEnter={onTwoStar} onClick={twoRating} className="rating-btn"><img ref="secondRatingImage" height="35px" width="35px" src="/images/gray_chopper_icon.png" /></button>
           <button  onMouseLeave={leaveThreeStar} onMouseEnter={onThreeStar} onClick={threeRating} className="rating-btn"><img ref="thirdRatingImage" height="35px" width="35px" src="/images/gray_chopper_icon.png" /></button>

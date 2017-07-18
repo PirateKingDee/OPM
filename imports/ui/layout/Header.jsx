@@ -28,6 +28,7 @@ export default class Header extends Component {
             </div>
             <ul className="nav navbar-nav">
               <li className="active"><Link to="/">Home</Link></li>
+              <li className=""><Link to="/blog">Blog</Link></li>
             </ul>
 
             {isLogin ?
