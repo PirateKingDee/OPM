@@ -4,6 +4,7 @@ import {Editor, EditorState, RichUtils, convertFromRaw, convertToRaw} from 'draf
 // import {stateToHTML} from 'draft-js-export-html';
 import ShowBlog from '/imports/ui/components/blog/ShowBlog.jsx';
 import {browserHistory} from 'react-router';
+
 export default class CreateBlogPage extends Component {
 
   constructor(props) {
@@ -49,6 +50,7 @@ export default class CreateBlogPage extends Component {
         }
 
   render() {
+    const imagePlugin = createImagePlugin();
     const {editorState} = this.state;
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
@@ -70,6 +72,8 @@ export default class CreateBlogPage extends Component {
       Meteor.call("insertBlog", blog);
       browserHistory.push("/blog");
     }
+
+
     return (
       <div className="container">
         <div className="form-group">
@@ -99,6 +103,11 @@ export default class CreateBlogPage extends Component {
             />
           </div>
           <button className="btn btn-primary pull-right" onClick={post} >Post</button>
+          <ImageAdd
+            editorState={this.state.editorState}
+            onChange={this.onChange}
+            modifier={imagePlugin.addImage}
+          />
           {/* <ShowBlog content={html}/> */}
 
         </div>
