@@ -5,6 +5,7 @@ import OneBlogPage from '/imports/ui/pages/OneBlogPage.jsx';
 export default createContainer((props) =>{
   const id = props.params.id;
   const oneBlogSub = Meteor.subscribe('one_blog', id);
+
   const blog = Blogs.findOne();
   console.log(blog);
   return {

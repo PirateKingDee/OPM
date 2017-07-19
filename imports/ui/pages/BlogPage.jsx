@@ -19,20 +19,6 @@ export default class BlogPage extends Component {
     }
     else{
       let blogs = this.props.blogs;
-      // let blogList = blogs.map(function(blog){
-      //   let content = convertFromRaw(blog.rawContent);
-      //   let html = stateToHTML(content);
-      //   const blocksFromHTML = convertFromHTML(html);
-      //   const state = ContentState.createFromBlockArray(
-      //     blocksFromHTML.contentBlocks,
-      //     blocksFromHTML.entityMap
-      //   );
-      //   this.state = {
-      //     editorState: EditorState.createWithContent(state),
-      //   };
-      //   return <Editor editorState={this.state.editorState} readOnly/>
-      // });
-
       let blogList = blogs.map(function(blog){
         return <Link to={'/blog/'+blog._id}><h4>{blog.title}</h4></Link>
       })

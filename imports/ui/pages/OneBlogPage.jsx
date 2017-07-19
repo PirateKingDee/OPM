@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
-import {CompositeDecorator,
-        ContentBlock,
-        ContentState,
-        Editor,
-        EditorState,
-        convertFromHTML,
-        convertFromRaw,} from 'draft-js';
-import {stateToHTML} from 'draft-js-export-html';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import {EditorState, convertFromRaw,} from 'draft-js';
 export default class OneBlogPage extends Component {
   constructor(props) {
     super(props);
@@ -20,19 +15,13 @@ export default class OneBlogPage extends Component {
     else{
       let blog = this.props.blog;
       let content = convertFromRaw(blog.rawContent);
-      let html = stateToHTML(content);
-      const blocksFromHTML = convertFromHTML(html);
-      const state = ContentState.createFromBlockArray(
-        blocksFromHTML.contentBlocks,
-        blocksFromHTML.entityMap
-      );
       this.state = {
-        editorState: EditorState.createWithContent(state),
+        editorState: EditorState.createWithContent(content),
       };
 
       return (
         <span>
-          <Editor editorState={this.state.editorState} readOnly/>
+          <Editor editorState={this.state.editorState} toolbarHidden readOnly/>
         </span>
 
       )
