@@ -24,6 +24,9 @@
 .review-form{
   margin-bottom: 50px;
 }
+.whole_review{
+  margin-top: 30px;
+}
 
 .username{
   font-size: 18px;
@@ -32,5 +35,46 @@
   color: blue;
 }
 .display-review{
+  margin-bottom: 40px;
+}
+
+.display_review_container{
+  margin-top:35px;
+}
+
+.well{
+  background-color: white;
+  margin-top: 30px;
+}
+
+.review_text{
+  margin-top: 20px;
+  border-top: 1px solid grey;
+  padding:20px;
+}
+
+.detail{
+  font-size: 20px;
+}
+.add_to_cart_btn{
+  margin-left: 0px;
+}
+.posting-block{
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.rdw-editor-main{
+  height: 600px;
+}
+
+.blog-nav{
+  position:fixed;
+  top:55px;
+  width:100%;
+  z-index:100;
   margin-bottom: 20px;
+}
+.write-btn{
+  background-color: white;
 }
