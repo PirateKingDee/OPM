@@ -12,3 +12,7 @@ import '/imports/api/blogs/blogs.js';
 import '/imports/api/blogs/server/methods/insert_blog.js';
 import '/imports/api/blogs/server/publications/all_blogs.js';
 import '/imports/api/blogs/server/publications/one_blog.js';
+import '/imports/api/blogs/server/publications/my_blogs.js';
+import '/imports/api/blogs/server/methods/update_blog.js';
+import '/imports/api/blogs/server/methods/remove_blog.js';
+// import '/imports/api/users/server/publications/one_user.js';

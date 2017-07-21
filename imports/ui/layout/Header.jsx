@@ -1,23 +1,18 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
-
-export default class Header extends Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state={
-  //     login: props.isLogin
-  //   }
-  //   console.log('props.islogin', props.isLogin);
-  // }
-
+import { connect }  from 'react-redux';
+import setLoginModal from '/imports/ui/Redux/actions/setLoginModal.js';
+import setLoginUser from '/imports/ui/Redux/actions/setLoginUser.js';
+class Header extends Component {
   render() {
-    let{ currentUser, isLogin} = this.props;
+    let{ curPage, currentUser, isLogin,dispatch, loginModal, loginUser} = this.props;
+    dispatch(setLoginModal(isLogin));
+    if(isLogin){
+      dispatch(setLoginUser(currentUser._id));
+    }
     let logout = () => {
-
       Meteor.logout();
-      //this.setState({'login': !this.state.login});
-      console.log('userID',isLogin);
-
+      dispatch(setLoginUser(null));
     }
     return (
       <div className="title">
@@ -27,17 +22,17 @@ export default class Header extends Component {
               <a className="navbar-brand" href="#">One Piece Models</a>
             </div>
             <ul className="nav navbar-nav">
-              <li className="active"><Link to="/">Home</Link></li>
-              <li className=""><Link to="/blog">Blog</Link></li>
+              <li className={curPage=="home" ? "active" : null }><Link to="/">Home</Link></li>
+              <li className={curPage=="blog" ? "active" : null }><Link to="/blog">Blog</Link></li>
             </ul>
 
             {isLogin ?
               <ul className="nav navbar-nav navbar-right">
-                <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span> Logout></a></li>
+                <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span>Logout</a></li>
               </ul>
               : <ul className="nav navbar-nav navbar-right">
                 <li><Link to="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</Link></li>
-                <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
+                <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span>Login</Link></li>
               </ul>
               }
 
@@ -47,3 +42,12 @@ export default class Header extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    loginModal: state.loginModal,
+    loginUser: state.loginUser,
+    curPage: state.curPage
+  };
+}
+export default connect(mapStateToProps)(Header);

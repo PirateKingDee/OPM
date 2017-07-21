@@ -6,6 +6,7 @@ export default createContainer((props) => {
   const userSub = Meteor.subscribe('current_user');
   let selector = {};
   let user = Meteor.user();
+  console.warn('user', user);
   return {
     loading: !userSub.ready(),
     currentUser: user,
