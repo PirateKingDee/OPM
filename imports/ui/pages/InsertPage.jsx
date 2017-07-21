@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {browserHistory} from 'react-router';
 export default class InsertPage extends Component {
 
   render() {
@@ -26,6 +26,7 @@ export default class InsertPage extends Component {
           return;
         }
       });
+      browserHistory.push("/admin");
     }
     return (
       <div>
