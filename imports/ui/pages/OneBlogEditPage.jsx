@@ -4,6 +4,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from 'draft-convert';
 import {EditorState, convertFromRaw, convertToRaw} from 'draft-js';
+import {browserHistory} from 'react-router';
 export default class OneBlogEditPage extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ export default class OneBlogEditPage extends Component {
   }
 
   handleChange = editorState => {
-    const content = convertToHTML(editorState.getCurrentContent());
+    // const content = convertToHTML(editorState.getCurrentContent());
     this.state = {editorState: editorState};
   }
   render() {
@@ -30,14 +31,12 @@ export default class OneBlogEditPage extends Component {
       }
 
       const {editorState} = this.state;
-      console.log('emyty', this.state.empty);
-      console.log('editorstate', this.state.editorState);
-      console.log('content', convertToRaw(this.state.editorState.getCurrentContent()));
       let update = () => {
         let rawContent = convertToRaw(this.state.editorState.getCurrentContent());
         Meteor.call('updateBlog', rawContent, blog._id, function(error, result){
           if(result === 'success'){
             console.warn("successful");
+            browserHistory.push("/blog");
           }
           else{
             console.warn("error");
