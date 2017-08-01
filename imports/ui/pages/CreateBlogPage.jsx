@@ -26,6 +26,7 @@ export default class CreateBlogPage extends Component {
         return Bert.alert('Please give it cover picture.', 'danger', 'fixed-top', 'fa-frown-o');
       }
       let raw = convertToRaw(contentState);
+      console.log('raw', raw);
       let blog = {
         rawContent: raw,
         title: this.refs.title.value,
