@@ -12,12 +12,11 @@ export default class ProductPage extends Component {
     }
     else{
       //subscribe review to product page also
-      let product = this.props.product;
-      let reviews = this.props.reviews;
+      let { product, reviews, isFavorited } = this.props;
       return (
           <div>
             <div className="container">
-              <ProductDetail product={product} reviews={reviews}/>
+              <ProductDetail product={product} reviews={reviews} isFavorited={isFavorited}/>
               <DisplayReview product={product} reviews={reviews}/>
               <Review product={product} reviews={reviews}/>
 
