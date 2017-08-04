@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import AddToCartButton from '/imports/ui/components/AddToCartButton.jsx';
 import { Link } from 'react-router';
+import { connect }  from 'react-redux';
 import accounting from 'accounting';
 import Rating from '/imports/ui/components/Rating.jsx';
-export default class ProductDetail extends Component {
+import FavoriteButton from '/imports/ui/components/Affiliate/FavoriteButton.jsx';
+class ProductDetail extends Component {
 
   render() {
-    let product = this.props.product;
-    let reviews = this.props.reviews;
+    let {product, reviews, isFavorited, loginUser, loginModal} = this.props;
     return (
       <div>
         <div className="row">
@@ -36,7 +37,8 @@ export default class ProductDetail extends Component {
               <strong>Ship: </strong>
               {accounting.formatMoney(product.shipping)}
             </p>
-            <AddToCartButton/>
+            <AddToCartButton />
+            <FavoriteButton product_id={product._id} isLogin={loginModal} isFavorited={isFavorited}/>
           </div>
         </div>
 
@@ -44,3 +46,12 @@ export default class ProductDetail extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    loginModal: state.loginModal,
+    loginUser: state.loginUser,
+    curPage: state.curPage
+  };
+}
+export default connect(mapStateToProps)(ProductDetail);
