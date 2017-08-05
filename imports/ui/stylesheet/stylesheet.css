@@ -78,3 +78,29 @@
 .write-btn{
   background-color: white;
 }
+
+.cart_number{
+  color: #F08804;
+}
+.navbar-nav > li > .cart_a{
+  padding-top: 9px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0px;
+  margin-right: -46px;
+  margin-top: -6px;
+  text-align: center;
+  z-index: 1;
+}
+
+.quantity_input{
+  width: 50px;
+  height:29px;
+}
+
+.favoriteBtn{
+  background-color: #F6BCF8;
+}
+.bodyContainer{
+  margin-top: 100px;
+}

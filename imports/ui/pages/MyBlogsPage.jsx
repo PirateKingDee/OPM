@@ -15,7 +15,7 @@ export default class MyBlogsPage extends Component {
         </div>
       });
       return (
-        <div className="row">
+        <div className="row bodyContainer">
           {listBlogs}
         </div>
       )

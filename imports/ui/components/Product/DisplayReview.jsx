@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Rating from '/imports/ui/components/Rating.jsx';
+import Rating from '/imports/ui/components/Product/Rating.jsx';
 export default class DisplayReivew extends Component {
 
   render() {

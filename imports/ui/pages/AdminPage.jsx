@@ -15,7 +15,7 @@ export default class AdminPage extends Component {
       });
       return (
           <div>
-            <div className="container">
+            <div className="container bodyContainer">
               <InsertButton />
               {productList}
             </div>

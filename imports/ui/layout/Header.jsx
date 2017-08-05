@@ -5,7 +5,8 @@ import setLoginModal from '/imports/ui/Redux/actions/setLoginModal.js';
 import setLoginUser from '/imports/ui/Redux/actions/setLoginUser.js';
 class Header extends Component {
   render() {
-    let{ curPage, currentUser, isLogin,dispatch, loginModal, loginUser} = this.props;
+    let{ curPage, currentUser, isLogin,dispatch, loginModal, loginUser, cartItems} = this.props;
+    console.log('cart', cartItems);
     dispatch(setLoginModal(isLogin));
     if(isLogin){
       dispatch(setLoginUser(currentUser._id));
@@ -14,21 +15,36 @@ class Header extends Component {
       Meteor.logout();
       dispatch(setLoginUser(null));
     }
+    var cartItemTotal = 0;
+    if(cartItems != null){
+      cartItems.map(function(item){
+        cartItemTotal += item.quantity;
+      })
+    }
+
     return (
       <div className="title">
-        <nav className="navbar navbar-inverse">
-          <div className="container-fluid">
+        <nav className="navbar navbar-inverse navbar-fixed-top">
+          <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">One Piece Models</a>
+              <a className="navbar-brand" href="/">One Piece Models</a>
             </div>
             <ul className="nav navbar-nav">
               <li className={curPage=="home" ? "active" : null }><Link to="/">Home</Link></li>
               <li className={curPage=="blog" ? "active" : null }><Link to="/blog">Blog</Link></li>
+              <li className={curPage=="favorite" ? "active" : null }><Link to="/my_favorite_list">My Favorites</Link></li>
+              <li className={curPage=="allUser" ? "active" : null }><Link to="/all_user_favorite_list">All Users Favorite List</Link></li>
+
             </ul>
+
 
             {isLogin ?
               <ul className="nav navbar-nav navbar-right">
                 <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                <li><a className="cart_a"><span className="cart_number">{cartItemTotal}</span></a></li>
+                {/* <li className={curPage=="cart" ? "active" : null }><Link to="/cart_items"><span  className="glyphicon glyphicon-shopping-cart"></span>Cart</Link></li> */}
+                <li className={curPage=="cart" ? "active" : null }><a href="/cart_items"><span  className="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+
               </ul>
               : <ul className="nav navbar-nav navbar-right">
                 <li><Link to="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</Link></li>

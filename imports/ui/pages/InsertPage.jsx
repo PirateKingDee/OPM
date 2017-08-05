@@ -29,7 +29,7 @@ export default class InsertPage extends Component {
       browserHistory.push("/admin");
     }
     return (
-      <div>
+      <div className="container bodyContainer">
         <div className="container signup_form col-sm-6 well well-lg">
           <div className="form-group">
             <label htmlFor="name">Prodcut Name:</label>

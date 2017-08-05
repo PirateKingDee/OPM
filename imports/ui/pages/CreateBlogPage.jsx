@@ -26,6 +26,7 @@ export default class CreateBlogPage extends Component {
         return Bert.alert('Please give it cover picture.', 'danger', 'fixed-top', 'fa-frown-o');
       }
       let raw = convertToRaw(contentState);
+      console.log('raw', raw);
       let blog = {
         rawContent: raw,
         title: this.refs.title.value,
@@ -35,7 +36,7 @@ export default class CreateBlogPage extends Component {
       browserHistory.push("/blog");
     }
     return (
-      <div className="container">
+      <div className="container bodyContainer">
         <div className="posting-block">
           <div className="form-group">
             <label htmlFor="usr">Title:</label>

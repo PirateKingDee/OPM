@@ -24,7 +24,7 @@ export default class Signup extends Component {
       }
     }
     return (
-      <div>
+      <div className="container bodyContainer"> 
         <div className="col-sm-3"></div>
         <div className="container signup_form col-sm-6 well well-lg">
           <div className="form-group">
