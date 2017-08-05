@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductHolder from '/imports/ui/components/ProductHolder.jsx';
+import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import { connect }  from 'react-redux';
 import { Link } from 'react-router';
@@ -14,7 +14,7 @@ class AllUserListPage extends Component {
       <Link to={'/favorite_list/'+user.profile.name}><span>{user.profile.name}</span> <span>{user.favorited_number} items favorited</span></Link> }</div>
     })
     return (
-        <div>
+        <div className="container bodyContainer">
           <div className="container">
             {listAllUser}
           </div>

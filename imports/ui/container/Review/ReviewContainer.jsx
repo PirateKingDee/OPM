@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Reviews } from '/imports/api/review/reviews.js';
-import DisplayReview from '/imports/ui/components/DisplayReview.jsx';
+import DisplayReview from '/imports/ui/components/Product/DisplayReview.jsx';
 export default createContainer((props) =>{
   const id = props.productID;
   // question:  how come after subscribed to the data with correct id, Reviews.find({}) still return

@@ -8,9 +8,9 @@ export default class OneUserProfilePage extends Component {
     }
     else{
       return (
-        <span>
-
-        </span>
+        <div className="container bodyContainer">
+          
+        </div>
       )
     }
   }

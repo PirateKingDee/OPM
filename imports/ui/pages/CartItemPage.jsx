@@ -1,23 +1,22 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
+import { Link } from 'react-router';
 import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import { connect }  from 'react-redux';
-class MyFavoriteList extends Component {
-
+class CartItemPage extends Component {
   render() {
     if(this.props.loading){
-      return(
-        <div>Loading</div>
-      )
+      return <h1>loading</h1>;
     }
     else{
-      let {loginModal, loginUser, curPage, dispatch, favoriteList, products} = this.props;
-      dispatch(setPage("favorite"));
+      let {products, loginModal, loginUser, curPage, dispatch} = this.props;
+      dispatch(setPage("cart"));
       let productList = products.map(function(product, i){
+
         return <ProductHolder key={product._id} product={product} favorited={true} />
       });
       return (
-          <div>
+          <div className="container bodyContainer">
             <div className="container bodyContainer">
               {productList}
             </div>
@@ -34,4 +33,4 @@ function mapStateToProps(state) {
     curPage: state.curPage
   };
 }
-export default connect(mapStateToProps)(MyFavoriteList);
+export default connect(mapStateToProps)(CartItemPage);

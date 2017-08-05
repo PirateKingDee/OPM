@@ -23,4 +23,10 @@ import '/imports/api/affiliate/server/methods/insert_favorite.js';
 import '/imports/api/affiliate/server/publications/favorite_list.js';
 import '/imports/api/affiliate/server/methods/remove_favorite.js';
 import '/imports/api/affiliate/server/publications/one_favorite.js';
+
+//cart
+import '/imports/api/cart/cart.js';
+import '/imports/api/cart/server/methods/add_to_cart.js';
+import '/imports/api/cart/server/publications/cart_items.js';
+import '/imports/api/cart/server/publications/cart_items_product.js';
 // import '/imports/api/users/server/publications/one_user.js';

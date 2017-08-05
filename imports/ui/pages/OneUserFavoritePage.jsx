@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductHolder from '/imports/ui/components/ProductHolder.jsx';
+import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import { connect }  from 'react-redux';
 import { Link } from 'react-router';
@@ -13,7 +13,7 @@ class OneUserFavoritePage extends Component {
     })
     return (
         <div>
-          <div className="container">
+          <div className="container bodyContainer">
             {productList}
           </div>
         </div>

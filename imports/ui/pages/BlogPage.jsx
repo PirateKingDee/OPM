@@ -23,7 +23,7 @@ class BlogPage extends Component {
           {loginModal ? <div className="navbar blog-nav"><Link to="/blog/write"><button className="btn write-btn pull-right">Write Blog</button></Link>
            <Link to="/blog/myblogs"><button className="btn write-btn pull-right">My Blogs</button></Link></div>
            : null}
-          <div className="container">
+          <div className="container bodyContainer">
             <div className="row">
               {blogList}
             </div>

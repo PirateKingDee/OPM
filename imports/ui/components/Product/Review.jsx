@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import DisplayReivew from '/imports/ui/components/DisplayReview.jsx';
-import ProductContainer from '/imports/ui/container/ProductContainer.jsx';
+import DisplayReivew from '/imports/ui/components/Product/DisplayReview.jsx';
+import ProductContainer from '/imports/ui/container/Product/ProductContainer.jsx';
 export default class Review extends Component {
 
   render() {

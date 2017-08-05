@@ -48,7 +48,7 @@ export default class FavoriteButton extends Component {
             <img height="20px" width="20px" src="/images/luffy_icon.png"/>
           </button>
         :
-        <button onClick={addToFavorite} ref="favoriteBtn" className="btn btn-success">
+        <button onClick={addToFavorite} ref="favoriteBtn" className="btn favoriteBtn" >
           <img height="20px" width="20px" src="/images/luffy_icon.png" />
           Favorite
           <img height="20px" width="20px" src="/images/luffy_icon.png"/>

@@ -36,7 +36,7 @@ export default class CreateBlogPage extends Component {
       browserHistory.push("/blog");
     }
     return (
-      <div className="container">
+      <div className="container bodyContainer">
         <div className="posting-block">
           <div className="form-group">
             <label htmlFor="usr">Title:</label>
