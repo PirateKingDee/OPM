@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 export default class AddToCartButton extends Component {
 
   render() {
-    let { product, isLogin} = this.props;
+    let { product, isLogin,shopOwnerId } = this.props;
     let addToCart = () => {
       if(!isLogin){
         console.log('need to login');
@@ -12,7 +12,14 @@ export default class AddToCartButton extends Component {
       let qty = parseInt($('#qtyInput').val());
       let item = {
         product_id: product._id,
+        product_name: product.name,
+        product_image: product.image,
+        product_price: product.price,
+        product_description: product.description,
         quantity: parseInt(qty)
+      }
+      if(typeof(shopOwnerId)!="undefined"){
+        item.referById = shopOwnerId
       }
       Meteor.call('addToCart', item, function(error, result){
         if(result === 'success'){

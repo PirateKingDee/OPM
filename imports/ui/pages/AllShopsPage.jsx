@@ -3,7 +3,7 @@ import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import { connect }  from 'react-redux';
 import { Link } from 'react-router';
-class AllUserListPage extends Component {
+class AllShopsPage extends Component {
 
   render() {
     let {allUser, loginModal, loginUser, curPage, dispatch} = this.props;
@@ -11,7 +11,7 @@ class AllUserListPage extends Component {
     let listAllUser = allUser.map(function(user,i){
       return <div>{(user._id == loginUser && loginModal) ? <span><span>{user.profile.name} (Me)</span> <span>{user.favorited_number} items favorited</span></span>
       :
-      <Link to={'/favorite_list/'+user.profile.name}><span>{user.profile.name}</span> <span>{user.favorited_number} items favorited</span></Link> }</div>
+      <Link to={'/shop/'+user.profile.name}><span>{user.profile.name}</span> <span>{user.favorited_number} items in Shop</span></Link> }</div>
     })
     return (
         <div className="container bodyContainer">
@@ -30,4 +30,4 @@ function mapStateToProps(state) {
     curPage: state.curPage
   };
 }
-export default connect(mapStateToProps)(AllUserListPage);
+export default connect(mapStateToProps)(AllShopsPage);

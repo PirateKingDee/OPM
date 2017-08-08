@@ -32,8 +32,8 @@ class Header extends Component {
             <ul className="nav navbar-nav">
               <li className={curPage=="home" ? "active" : null }><Link to="/">Home</Link></li>
               <li className={curPage=="blog" ? "active" : null }><Link to="/blog">Blog</Link></li>
-              <li className={curPage=="favorite" ? "active" : null }><Link to="/my_favorite_list">My Favorites</Link></li>
-              <li className={curPage=="allUser" ? "active" : null }><Link to="/all_user_favorite_list">All Users Favorite List</Link></li>
+              <li className={curPage=="favorite" ? "active" : null }><Link to="/my_shop">My Shop</Link></li>
+              <li className={curPage=="allUser" ? "active" : null }><Link to="/shop">All Shops</Link></li>
 
             </ul>
 

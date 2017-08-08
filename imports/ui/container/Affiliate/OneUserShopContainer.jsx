@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { AffiliateList } from '/imports/api/affiliate/affiliate.js';
 import { Products } from '/imports/api/products/products.js';
-import OneUserFavoritePage from '/imports/ui/pages/OneUserFavoritePage.jsx';
+import OneUserShopPage from '/imports/ui/pages/OneUserShopPage.jsx';
 export default createContainer((props) =>{
   let username = props.params.username;
   let userId = Meteor.users.findOne({profile:{name:username}})._id;
@@ -14,6 +14,7 @@ export default createContainer((props) =>{
   return {
     loading: !favoriteListSub.ready(),
     favoriteList: favoriteList,
-    products: products
+    products: products,
+    username:username
   }
-}, OneUserFavoritePage);
+}, OneUserShopPage);

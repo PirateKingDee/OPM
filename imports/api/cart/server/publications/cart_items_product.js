@@ -6,9 +6,9 @@ import { _ } from 'meteor/underscore';
 Meteor.publish("cart_items_product", function (){
   let selector = {user_id: this.userId};
   let cartCursor = Cart.find(selector);
-  let cartList = cartCursor.fetch();
-  let productIds = _.pluck(cartList, 'product_id');
-  console.log('productid', productIds);
-  let productCursor = Products.find({_id: {$in: productIds}});
-  return productCursor;
+  // let cartList = cartCursor.fetch();
+  // let productIds = _.pluck(cartList, 'product_id');
+  // console.log('productid', productIds);
+  // let productCursor = Products.find({_id: {$in: productIds}});
+  return cartCursor;
 });

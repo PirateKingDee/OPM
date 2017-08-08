@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
+import ShopProductHolder from '/imports/ui/components/Affiliate/ShopProductHolder.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import { connect }  from 'react-redux';
 import { Link } from 'react-router';
-class OneUserFavoritePage extends Component {
+class OneUserShopPage extends Component {
 
   render() {
-    let {allUser, loginModal, loginUser, curPage, dispatch, products} = this.props;
+    let {username, loginModal, loginUser, curPage, dispatch, products} = this.props;
     dispatch(setPage('allUser'));
     let productList = products.map(function(product, i){
-      return <ProductHolder key={product._id} product={product} favorited={true} />
+      return <ShopProductHolder username={username} key={product._id} product={product} favorited={true} />
     })
     return (
         <div>
@@ -28,4 +28,4 @@ function mapStateToProps(state) {
     curPage: state.curPage
   };
 }
-export default connect(mapStateToProps)(OneUserFavoritePage);
+export default connect(mapStateToProps)(OneUserShopPage);

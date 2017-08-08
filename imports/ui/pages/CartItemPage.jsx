@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import { Link } from 'react-router';
-import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
+import CartItemGrid from '/imports/ui/components/Cart/CartItemGrid.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import { connect }  from 'react-redux';
 class CartItemPage extends Component {
@@ -9,17 +9,30 @@ class CartItemPage extends Component {
       return <h1>loading</h1>;
     }
     else{
-      let {products, loginModal, loginUser, curPage, dispatch} = this.props;
+      let {cartList, loginModal, loginUser, curPage, dispatch} = this.props;
       dispatch(setPage("cart"));
-      let productList = products.map(function(product, i){
+      let productList = cartList.map(function(cartItem, i){
 
-        return <ProductHolder key={product._id} product={product} favorited={true} />
+        return <CartItemGrid key={cartItem._id} cartItem={cartItem} />
       });
       return (
-          <div className="container bodyContainer">
-            <div className="container bodyContainer">
-              {productList}
+          <div className="cartContainer">
+            <div className="col-sm-10">
+              <div className="col-sm-2">
+              </div>
+              <div className="col-sm-3">
+                <h4 className="text-center">Product Name</h4>
+              </div>
+
+              <div className="col-sm-3">
+                <h5 className="text-center">Price</h5>
+              </div>
+              <div className="col-sm-3">
+                <h5 className="text-center">Quantity</h5>
+              </div>
             </div>
+            {productList}
+
           </div>
       )
     }

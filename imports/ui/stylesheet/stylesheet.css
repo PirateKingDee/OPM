@@ -84,13 +84,15 @@
 }
 .navbar-nav > li > .cart_a{
   padding-top: 9px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   padding-left: 0;
   padding-right: 0px;
-  margin-right: -46px;
+  margin-right: -90px;
+  margin-left: 19px;
   margin-top: -6px;
   text-align: center;
   z-index: 1;
+  width: 10px;
 }
 
 .quantity_input{
@@ -103,4 +105,8 @@
 }
 .bodyContainer{
   margin-top: 100px;
+}
+.cartContainer{
+  margin-top: 100px;
+  
 }
