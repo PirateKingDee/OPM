@@ -40,10 +40,12 @@ class Header extends Component {
 
             {isLogin ?
               <ul className="nav navbar-nav navbar-right">
-                <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                <li className={curPage=="profile" ? "active" : null}><Link to={"/profile/"+currentUser.profile.name}><span className="glyphicon glyphicon-user"></span></Link></li>
                 <li><a className="cart_a"><span className="cart_number">{cartItemTotal}</span></a></li>
                 {/* <li className={curPage=="cart" ? "active" : null }><Link to="/cart_items"><span  className="glyphicon glyphicon-shopping-cart"></span>Cart</Link></li> */}
                 <li className={curPage=="cart" ? "active" : null }><a href="/cart_items"><span  className="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+                <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span>Logout</a></li>
+
 
               </ul>
               : <ul className="nav navbar-nav navbar-right">

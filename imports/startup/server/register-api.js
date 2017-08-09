@@ -29,4 +29,13 @@ import '/imports/api/cart/cart.js';
 import '/imports/api/cart/server/methods/add_to_cart.js';
 import '/imports/api/cart/server/publications/cart_items.js';
 import '/imports/api/cart/server/publications/cart_items_product.js';
+import '/imports/api/cart/server/methods/update_quantity.js';
+import '/imports/api/cart/server/methods/remove_from_cart.js';
 // import '/imports/api/users/server/publications/one_user.js';
+
+//orders
+import '/imports/api/orders/orders.js';
+import '/imports/api/orders/server/methods/add_pending_order.js';
+
+//user
+import '/imports/api/users/server/methods/add_reward.js';

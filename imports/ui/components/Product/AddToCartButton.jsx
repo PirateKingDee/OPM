@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
 import { Link } from 'react-router';
 export default class AddToCartButton extends Component {
 
@@ -6,7 +7,7 @@ export default class AddToCartButton extends Component {
     let { product, isLogin,shopOwnerId } = this.props;
     let addToCart = () => {
       if(!isLogin){
-        console.log('need to login');
+        browserHistory.push('/login');
         return;
       }
       let qty = parseInt($('#qtyInput').val());

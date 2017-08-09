@@ -2,6 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import { Link } from 'react-router';
 import CartItemGrid from '/imports/ui/components/Cart/CartItemGrid.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
+import Checkout from '/imports/ui/components/Checkout/Checkout.jsx';
 import { connect }  from 'react-redux';
 class CartItemPage extends Component {
   render() {
@@ -32,6 +33,10 @@ class CartItemPage extends Component {
               </div>
             </div>
             {productList}
+            <div className="col-sm-2">
+              <Checkout cartList={cartList}/>
+            </div>
+
 
           </div>
       )

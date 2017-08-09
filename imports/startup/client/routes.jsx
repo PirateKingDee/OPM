@@ -20,6 +20,7 @@ import AllUsersShopContainer from '/imports/ui/container/Affiliate/AllUsersShopC
 import OneUserShopContainer from '/imports/ui/container/Affiliate/OneUserShopContainer.jsx';
 import OneUserShopProductContainer from '/imports/ui/container/Affiliate/OneUserShopProductContainer.jsx';
 import CartItemsContainer from '/imports/ui/container/Cart/CartItemsContainer.jsx';
+import UserProfileContainer from '/imports/ui/container/UserProfile/UserProfileContainer.jsx';
 //import ReviewLayout from '/imports/ui/layout/ReviewLayout.jsx';
 export default () => (
   <Router history={browserHistory}>
@@ -38,6 +39,7 @@ export default () => (
       <Route path="/blog/write"  component={CreateBlogPage} />
       <Route path="/blog/myblogs"  component={MyBlogsContainer} />
       <Route path="/cart_items"  component={CartItemsContainer} />
+      <Route path="/profile/:username" component={UserProfileContainer} />
       <Route path="/blog/:id"  component={OneBlogContainer} />
       <Route path="/blog/edit/:id" component={OneBlogEditContainer} />
       <Route path="/profile/user/:id" component={OneUserProfileContainer} />
