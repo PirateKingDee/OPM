@@ -1,23 +1,26 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Router, Route, IndexRedirect, browserHistory} from 'react-router';
-import HomeContainer from '/imports/ui/container/HomeContainer.jsx';
-import ProductContainer from '/imports/ui/container/ProductContainer.jsx';
+import HomeContainer from '/imports/ui/container/Home/HomeContainer.jsx';
+import ProductContainer from '/imports/ui/container/Product/ProductContainer.jsx';
 import MainLayout from '/imports/ui/layout/MainLayout.jsx';
 import Signup from '/imports/ui/pages/Signup.jsx';
 import Login from '/imports/ui/pages/Login.jsx';
-import MainContainer from '/imports/ui/container/MainContainer.jsx';
-import AdminContainer from '/imports/ui/container/AdminContainer.jsx';
+import MainContainer from '/imports/ui/container/Main/MainContainer.jsx';
+import AdminContainer from '/imports/ui/container/Admin/AdminContainer.jsx';
 import InsertPage from '/imports/ui/pages/InsertPage.jsx';
-import BlogContainer from '/imports/ui/container/BlogsContainer.jsx';
+import BlogContainer from '/imports/ui/container/Blogs/BlogsContainer.jsx';
 import CreateBlogPage from '/imports/ui/pages/CreateBlogPage.jsx';
-import OneBlogContainer from '/imports/ui/container/OneBlogContainer.jsx';
-import MyBlogsContainer from '/imports/ui/container/MyBlogsContainer.jsx';
-import OneBlogEditContainer from '/imports/ui/container/OneBlogEditContainer.jsx';
+import OneBlogContainer from '/imports/ui/container/Blogs/OneBlogContainer.jsx';
+import MyBlogsContainer from '/imports/ui/container/Blogs/MyBlogsContainer.jsx';
+import OneBlogEditContainer from '/imports/ui/container/Blogs/OneBlogEditContainer.jsx';
 import OneUserProfileContainer from '/imports/ui/container/OneUserProfileContainer.jsx';
-import MyFavoriteListContainer from '/imports/ui/container/MyFavoriteListContainer.jsx';
-import AllUsersFavoriteListContainer from '/imports/ui/container/AllUsersFavoriteListContainer.jsx';
-import OneUserListContainer from '/imports/ui/container/OneUserListContainer.jsx';
+import MyShopContainer from '/imports/ui/container/Affiliate/MyShopContainer.jsx';
+import AllUsersShopContainer from '/imports/ui/container/Affiliate/AllUsersShopContainer.jsx';
+import OneUserShopContainer from '/imports/ui/container/Affiliate/OneUserShopContainer.jsx';
+import OneUserShopProductContainer from '/imports/ui/container/Affiliate/OneUserShopProductContainer.jsx';
+import CartItemsContainer from '/imports/ui/container/Cart/CartItemsContainer.jsx';
+import UserProfileContainer from '/imports/ui/container/UserProfile/UserProfileContainer.jsx';
 //import ReviewLayout from '/imports/ui/layout/ReviewLayout.jsx';
 export default () => (
   <Router history={browserHistory}>
@@ -28,12 +31,15 @@ export default () => (
       <Route path="/login" component={Login} />
       <Route path="/admin" component={AdminContainer} />
       <Route path="/insert" component={InsertPage} />
-      <Route path="/my_favorite_list" component={MyFavoriteListContainer} />
-      <Route path="/all_user_favorite_list" component={AllUsersFavoriteListContainer} />
-      <Route path="/favorite_list/:username" component={OneUserListContainer} />
+      <Route path="/my_shop" component={MyShopContainer} />
+      <Route path="/shop" component={AllUsersShopContainer} />
+      <Route path="/shop/:username" component={OneUserShopContainer} />
+      <Route path="/shop/:username/:product_id" component={OneUserShopProductContainer} />
       <Route path="/blog" component={BlogContainer} />
       <Route path="/blog/write"  component={CreateBlogPage} />
       <Route path="/blog/myblogs"  component={MyBlogsContainer} />
+      <Route path="/cart_items"  component={CartItemsContainer} />
+      <Route path="/profile/:username" component={UserProfileContainer} />
       <Route path="/blog/:id"  component={OneBlogContainer} />
       <Route path="/blog/edit/:id" component={OneBlogEditContainer} />
       <Route path="/profile/user/:id" component={OneUserProfileContainer} />

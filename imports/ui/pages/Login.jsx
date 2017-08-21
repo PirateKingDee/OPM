@@ -25,7 +25,7 @@ export default class Login extends Component {
       this.setState({'signup':!this.state.signup});
     }
     return (
-      <div>
+      <div className="container bodyContainer">
         {this.state.signup ? <div><Signup />
           <span onClick={register}>Already member? Login here!</span></div> :
           <div>

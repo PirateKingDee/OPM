@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import { Link } from 'react-router';
-import ProductHolder from '/imports/ui/components/ProductHolder.jsx';
+import ProductHolder from '/imports/ui/components/Product/ProductHolder.jsx';
 import setPage from '/imports/ui/Redux/actions/setPage.js';
 import setFavoriteList from '/imports/ui/Redux/actions/setFavoriteList.js';
 import { connect }  from 'react-redux';
@@ -28,7 +28,7 @@ class Home extends Component {
       });
       return (
           <div>
-            <div className="container">
+            <div className="container bodyContainer">
               {productList}
             </div>
           </div>

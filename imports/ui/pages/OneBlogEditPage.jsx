@@ -45,7 +45,7 @@ export default class OneBlogEditPage extends Component {
         });
       }
       return (
-        <span>
+        <div className="container bodyContainer">
           <h1 className="text-center">{blog.title}</h1>
           <Editor defaultEditorState={this.state.editorState}
             toolbarClassName="toolbarClassName"
@@ -53,7 +53,7 @@ export default class OneBlogEditPage extends Component {
             editorClassName="editorClassName"
           onEditorStateChange={this.handleChange} />
           <button className="btn btn-primary pull-right" onClick={update}>update</button>
-        </span>
+        </div>
       )
     }
   }

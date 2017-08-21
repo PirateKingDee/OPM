@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import AddToCartButton from '/imports/ui/components/AddToCartButton.jsx';
+import AddToCartButton from '/imports/ui/components/Product/AddToCartButton.jsx';
 import { Link } from 'react-router';
 import { connect }  from 'react-redux';
 import accounting from 'accounting';
-import Rating from '/imports/ui/components/Rating.jsx';
+import Rating from '/imports/ui/components/Product/Rating.jsx';
 import FavoriteButton from '/imports/ui/components/Affiliate/FavoriteButton.jsx';
 class ProductDetail extends Component {
 
   render() {
-    let {product, reviews, isFavorited, loginUser, loginModal} = this.props;
+    let {product, reviews, isFavorited, loginUser, loginModal, shopOwnerId} = this.props;
+    console.log('shopOwnerId', shopOwnerId);
     return (
       <div>
         <div className="row">
@@ -37,7 +38,7 @@ class ProductDetail extends Component {
               <strong>Ship: </strong>
               {accounting.formatMoney(product.shipping)}
             </p>
-            <AddToCartButton />
+            <AddToCartButton product={product} isLogin={loginModal} shopOwnerId={shopOwnerId} />
             <FavoriteButton product_id={product._id} isLogin={loginModal} isFavorited={isFavorited}/>
           </div>
         </div>
