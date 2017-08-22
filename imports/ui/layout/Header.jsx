@@ -34,6 +34,7 @@ class Header extends Component {
               <li className={curPage=="blog" ? "active" : null }><Link to="/blog">Blog</Link></li>
               <li className={curPage=="favorite" ? "active" : null }><Link to="/my_shop">My Shop</Link></li>
               <li className={curPage=="allUser" ? "active" : null }><Link to="/shop">All Shops</Link></li>
+              <li className={curPage=="instagram" ? "active" : null }><Link to="/instagram">Instagram</Link></li>
 
             </ul>
 
