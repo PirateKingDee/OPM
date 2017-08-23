@@ -32,18 +32,21 @@ class Header extends Component {
             <ul className="nav navbar-nav">
               <li className={curPage=="home" ? "active" : null }><Link to="/">Home</Link></li>
               <li className={curPage=="blog" ? "active" : null }><Link to="/blog">Blog</Link></li>
-              <li className={curPage=="favorite" ? "active" : null }><Link to="/my_favorite_list">My Favorites</Link></li>
-              <li className={curPage=="allUser" ? "active" : null }><Link to="/all_user_favorite_list">All Users Favorite List</Link></li>
+              <li className={curPage=="favorite" ? "active" : null }><Link to="/my_shop">My Shop</Link></li>
+              <li className={curPage=="allUser" ? "active" : null }><Link to="/shop">All Shops</Link></li>
+              <li className={curPage=="instagram" ? "active" : null }><Link to="/instagram">Instagram</Link></li>
 
             </ul>
 
 
             {isLogin ?
               <ul className="nav navbar-nav navbar-right">
-                <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                <li className={curPage=="profile" ? "active" : null}><Link to={"/profile/"+currentUser.profile.name}><span className="glyphicon glyphicon-user"></span></Link></li>
                 <li><a className="cart_a"><span className="cart_number">{cartItemTotal}</span></a></li>
                 {/* <li className={curPage=="cart" ? "active" : null }><Link to="/cart_items"><span  className="glyphicon glyphicon-shopping-cart"></span>Cart</Link></li> */}
                 <li className={curPage=="cart" ? "active" : null }><a href="/cart_items"><span  className="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+                <li><a><span onClick={logout} className="glyphicon glyphicon-log-out"></span>Logout</a></li>
+
 
               </ul>
               : <ul className="nav navbar-nav navbar-right">

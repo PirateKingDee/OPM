@@ -15,10 +15,14 @@ import OneBlogContainer from '/imports/ui/container/Blogs/OneBlogContainer.jsx';
 import MyBlogsContainer from '/imports/ui/container/Blogs/MyBlogsContainer.jsx';
 import OneBlogEditContainer from '/imports/ui/container/Blogs/OneBlogEditContainer.jsx';
 import OneUserProfileContainer from '/imports/ui/container/OneUserProfileContainer.jsx';
-import MyFavoriteListContainer from '/imports/ui/container/Affiliate/MyFavoriteListContainer.jsx';
-import AllUsersFavoriteListContainer from '/imports/ui/container/Affiliate/AllUsersFavoriteListContainer.jsx';
-import OneUserListContainer from '/imports/ui/container/Affiliate/OneUserListContainer.jsx';
+import MyShopContainer from '/imports/ui/container/Affiliate/MyShopContainer.jsx';
+import AllUsersShopContainer from '/imports/ui/container/Affiliate/AllUsersShopContainer.jsx';
+import OneUserShopContainer from '/imports/ui/container/Affiliate/OneUserShopContainer.jsx';
+import OneUserShopProductContainer from '/imports/ui/container/Affiliate/OneUserShopProductContainer.jsx';
 import CartItemsContainer from '/imports/ui/container/Cart/CartItemsContainer.jsx';
+import UserProfileContainer from '/imports/ui/container/UserProfile/UserProfileContainer.jsx';
+import InstagramContainer from '/imports/ui/container/Instagram/instagramContainer.jsx';
+import InstagramByTagContainer from '/imports/ui/container/Instagram/InstagramByTagContainer.jsx';
 //import ReviewLayout from '/imports/ui/layout/ReviewLayout.jsx';
 export default () => (
   <Router history={browserHistory}>
@@ -29,13 +33,17 @@ export default () => (
       <Route path="/login" component={Login} />
       <Route path="/admin" component={AdminContainer} />
       <Route path="/insert" component={InsertPage} />
-      <Route path="/my_favorite_list" component={MyFavoriteListContainer} />
-      <Route path="/all_user_favorite_list" component={AllUsersFavoriteListContainer} />
-      <Route path="/favorite_list/:username" component={OneUserListContainer} />
+      <Route path="/my_shop" component={MyShopContainer} />
+      <Route path="/shop" component={AllUsersShopContainer} />
+      <Route path="/shop/:username" component={OneUserShopContainer} />
+      <Route path="/shop/:username/:product_id" component={OneUserShopProductContainer} />
       <Route path="/blog" component={BlogContainer} />
       <Route path="/blog/write"  component={CreateBlogPage} />
       <Route path="/blog/myblogs"  component={MyBlogsContainer} />
       <Route path="/cart_items"  component={CartItemsContainer} />
+      <Route path="/instagram" component={InstagramContainer} />
+      <Route path="/instagram/:tag" component={InstagramByTagContainer} />
+      <Route path="/profile/:username" component={UserProfileContainer} />
       <Route path="/blog/:id"  component={OneBlogContainer} />
       <Route path="/blog/edit/:id" component={OneBlogEditContainer} />
       <Route path="/profile/user/:id" component={OneUserProfileContainer} />
