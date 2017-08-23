@@ -39,3 +39,9 @@ import '/imports/api/orders/server/methods/add_pending_order.js';
 
 //user
 import '/imports/api/users/server/methods/add_reward.js';
+
+//instagram
+import '/imports/api/instagram/server/methods/instagram_data.js';
+import '/imports/api/instagram/instagram.js';
+import '/imports/api/instagram/server/publications/recent_media.js';
+import '/imports/api/instagram/server/publications/media_by_tag.js';

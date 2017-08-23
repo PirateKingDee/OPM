@@ -21,6 +21,8 @@ import OneUserShopContainer from '/imports/ui/container/Affiliate/OneUserShopCon
 import OneUserShopProductContainer from '/imports/ui/container/Affiliate/OneUserShopProductContainer.jsx';
 import CartItemsContainer from '/imports/ui/container/Cart/CartItemsContainer.jsx';
 import UserProfileContainer from '/imports/ui/container/UserProfile/UserProfileContainer.jsx';
+import InstagramContainer from '/imports/ui/container/Instagram/instagramContainer.jsx';
+import InstagramByTagContainer from '/imports/ui/container/Instagram/InstagramByTagContainer.jsx';
 //import ReviewLayout from '/imports/ui/layout/ReviewLayout.jsx';
 export default () => (
   <Router history={browserHistory}>
@@ -39,6 +41,8 @@ export default () => (
       <Route path="/blog/write"  component={CreateBlogPage} />
       <Route path="/blog/myblogs"  component={MyBlogsContainer} />
       <Route path="/cart_items"  component={CartItemsContainer} />
+      <Route path="/instagram" component={InstagramContainer} />
+      <Route path="/instagram/:tag" component={InstagramByTagContainer} />
       <Route path="/profile/:username" component={UserProfileContainer} />
       <Route path="/blog/:id"  component={OneBlogContainer} />
       <Route path="/blog/edit/:id" component={OneBlogEditContainer} />
