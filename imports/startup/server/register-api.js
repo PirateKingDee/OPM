@@ -45,3 +45,13 @@ import '/imports/api/instagram/server/methods/instagram_data.js';
 import '/imports/api/instagram/instagram.js';
 import '/imports/api/instagram/server/publications/recent_media.js';
 import '/imports/api/instagram/server/publications/media_by_tag.js';
+
+//api keys
+import '/imports/api/api_keys/api_keys.js';
+import '/imports/api/api_keys/server/methods/add_key.js';
+
+//yelp
+import '/imports/api/yelp/yelps.js';
+import '/imports/api/yelp/server/methods/addYelp.js';
+import '/imports/api/yelp/server/publications/search.js';
+import '/imports/api/yelp/server/methods/remove.js';

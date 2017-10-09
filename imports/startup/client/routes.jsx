@@ -23,6 +23,8 @@ import CartItemsContainer from '/imports/ui/container/Cart/CartItemsContainer.js
 import UserProfileContainer from '/imports/ui/container/UserProfile/UserProfileContainer.jsx';
 import InstagramContainer from '/imports/ui/container/Instagram/instagramContainer.jsx';
 import InstagramByTagContainer from '/imports/ui/container/Instagram/InstagramByTagContainer.jsx';
+import YelpPage from '/imports/ui/pages/Yelp/YelpPage.jsx'
+import YelpSearchContainer from '/imports/ui/container/Yelp/YelpSearchContainer.jsx';
 //import ReviewLayout from '/imports/ui/layout/ReviewLayout.jsx';
 export default () => (
   <Router history={browserHistory}>
@@ -42,6 +44,8 @@ export default () => (
       <Route path="/blog/myblogs"  component={MyBlogsContainer} />
       <Route path="/cart_items"  component={CartItemsContainer} />
       <Route path="/instagram" component={InstagramContainer} />
+      <Route path="/yelp" component={YelpSearchContainer} />
+      {/* <Route path="/yelp/:term-:location" component={YelpSearchContainer} /> */}
       <Route path="/instagram/:tag" component={InstagramByTagContainer} />
       <Route path="/profile/:username" component={UserProfileContainer} />
       <Route path="/blog/:id"  component={OneBlogContainer} />

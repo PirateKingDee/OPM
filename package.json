@@ -13,18 +13,21 @@
     "draft-js-export-html": "^0.5.4",
     "draft-js-image-plugin": "^2.0.0-beta1",
     "express": "^4.15.4",
+    "fibers": "^2.0.0",
     "instagram-api": "^1.0.3",
     "instagram-node": "^0.5.8",
     "meteor-node-stubs": "~0.2.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-draft-wysiwyg": "1.10.7",
+    "react-google-maps": "^8.3.3",
     "react-meteor-data": "^0.2.10",
     "react-redux": "^5.0.5",
     "react-router": "^2.8.1",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.0",
     "redux-logger": "^2.8.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "yelp-v3": "0.0.5"
   }
 }
